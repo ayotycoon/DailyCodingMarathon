@@ -9,28 +9,21 @@ public class LengthLongestPath_Ayokunle {
         int max = 0;
         var split = input.split("\\n");
         HashMap<Integer, Integer> map = new HashMap<>();
-
         for(int i =0; i < split.length; i++){
             String item = split[i];
             // System.out.println(item);
             boolean isFile =item.contains(".");
+            var x = item.split("\\t");
+            String alt = x[x.length-1];
+            int no = item.lastIndexOf("\t")+1;
+            int prev = map.containsKey(no-1) ? map.get(no -1) : 0;
 
-            if(i ==0 && !isFile){
-                // then its root
-
-                map.put(i,item.length());
+            if(isFile){
+                max = Math.max(prev  + (prev == 0 ? 0 :1) + alt.length(),max);
             }else {
-                var x = item.split("\\t");
-                String alt = x[x.length-1];
-                int no = item.lastIndexOf("\t")+1;
-                int prev = map.containsKey(no-1) ? map.get(no -1) : 0;
-
-                if(isFile){
-                    max = Math.max(prev  + (prev == 0 ? 0 :1) + alt.length(),max);
-                }else {
-                    map.put( no, prev + (prev == 0 ? 0 :1) + alt.length() );
-                }
+                map.put( no, prev + (prev == 0 ? 0 :1) + alt.length() );
             }
+
         }
 
         return max;
