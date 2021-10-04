@@ -28,7 +28,7 @@ class Node {
     }
 }
 
-public class SolutionUnArranged {
+public class SolutionUnArranged_Ayokunle {
     public static Node Tree = new Node(null);
 
     public static String tabSpacer(int n) {
