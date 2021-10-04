@@ -46,7 +46,7 @@ public class SolutionUnArranged {
 
         var keys = n.children.keySet();
         if (n.value != null) {
-            System.out.println(tabSpacer(depth) + n.value);
+            System.out.println(tabSpacer(depth) +"-"+ n.value);
         }
 
         for (var key : keys) {
